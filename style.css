@@ -172,38 +172,40 @@ nav ul a {
 
 /* --- 상세보기 버튼 --- */
 .detail-button { 
-    position: absolute; 
-    top: 375px; 
-    left: 740px; 
+    position: relative;   /* 중요 */
     width: 200px; 
     height: 200px; 
-    z-index: 400; /* 슬라이드 버튼보다는 낮게 설정 */
+    z-index: 400;
     transition: transform 0.3s ease;
 }
 
-/* 버튼 2번 위치 조정 */
+/* 버튼 2번은 래퍼로 위치 제어 */
 .detail-button-2 {
-    left: calc(740px + 140px); /* 버튼1 기준 오른쪽 30px */
+    /* 위치값 제거 */
 }
 
+/* 이미지 유지 */
 .detail-button img { 
     width: 100%; 
     height: 100%; 
     object-fit: contain; 
 }
+/* 버튼 + 텍스트 래퍼 */
 .button-wrap {
     position: absolute;
-    top: 340px; /* 버튼보다 위 */
+    top: 340px;
     left: 740px;
     width: 200px;
     text-align: center;
     z-index: 410;
 }
 
-/* 두 번째 버튼 래퍼 위치 */
+/* 두 번째 버튼 래퍼 */
 .button-wrap-2 {
-    left: calc(740px + 140px); /* 버튼2와 동일 */
+    left: calc(740px + 140px);
 }
+
+
 
 /* 버튼 위 텍스트 */
 .button-label {
