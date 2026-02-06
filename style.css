@@ -2,116 +2,181 @@
 
 * { box-sizing: border-box; }
 
-body, html {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
-    font-family: "Montserrat", sans-serif;
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: "Montserrat", sans-serif;
 }
 
 #app {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
+/* background */
 #staticImg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 #canvas {
-    position: absolute;
-    inset: 0;
-    z-index: 100;
-    pointer-events: none;
-    opacity: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
 }
 
+/* nav */
+nav {
+  position: fixed;
+  top: 70px;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: all .4s ease;
+}
+
+nav.active {
+  width: 420px;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(10px);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding-left: 25px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+nav.active ul { opacity: 1; }
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 24px;
+}
+
+.icon {
+  position: absolute;
+  right: -85px;
+  width: 200px;
+  height: 200px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon img {
+  width: 200px;
+  height: 200px;
+}
+
+/* carousel */
 .carousel {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
 }
 
 .carousel__viewport {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .carousel__slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    flex: 0 0 100%;
-    background-size: cover;
-    background-position: center;
+  flex: 0 0 100%;
+  background-size: cover;
+  background-position: center;
 }
 
-/* 상세보기 버튼 */
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border: none;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.prev { left: 60px; }
+.next { right: 60px; }
+
+/* detail */
 .detail-button {
-    position: absolute;
-    top: 375px;
-    left: 740px;
-    width: 200px;
-    height: 200px;
-    z-index: 400;
-    transition: transform 0.3s ease;
+  position: absolute;
+  top: 380px;
+  left: 740px;
+  width: 200px;
+  height: 200px;
+  z-index: 300;
 }
 
-.detail-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.detail-button:hover {
-    transform: scale(1.1);
-}
-
-/* ✅ 추가 버튼 – 오른쪽 정확히 100px */
-.button-4 {
-    left: 840px; /* 740 + 100 */
-}
-
-/* 클릭 영역 */
-.custom-area-link-1 {
-    position: absolute;
-    left: 240px;
-    top: 600px;
-    width: 569px;
-    height: 25px;
-}
-
-/* 팝업 */
+/* popup */
 .popup-dim {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    opacity: 0;
-    visibility: hidden;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 9998;
 }
 
 .popup {
-    position: fixed;
-    inset: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    height: 80%;
-    max-width: 1000px;
-    background: #000;
-    border-radius: 40px;
-    opacity: 0;
-    visibility: hidden;
+  position: fixed;
+  inset: 50%;
+  transform: translate(-50%,-50%) scale(.9);
+  width: 90%;
+  height: 80%;
+  background: #000;
+  border-radius: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 9999;
 }
 
 .popup img {
-    width: 100%;
-    border-radius: 40px;
+  width: 100%;
+}
+
+.popup.show,
+.popup-dim.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-close {
+  position: fixed;
+  top: 100px;
+  right: 300px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 10001;
 }
