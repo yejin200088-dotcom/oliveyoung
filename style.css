@@ -1,132 +1,68 @@
-/* =============== GOOGLE FONTS =============== */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 
-/* =============== RESET =============== */
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html, body {
+body, html {
     margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
+    background: #000;
     overflow: hidden;
     font-family: "Montserrat", sans-serif;
-    background: #000; /* 검정 여백 방지 */
 }
 
-/* =============== APP WRAP =============== */
 #app {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-/* =============== BACKGROUND =============== */
 #staticImg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
-/* =============== CANVAS EFFECT =============== */
 #canvas {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
     z-index: 100;
+    pointer-events: none;
+    opacity: 0;
 }
 
-/* =============== CAROUSEL =============== */
 .carousel {
     position: absolute;
     inset: 0;
-    z-index: 10;
 }
 
 .carousel__viewport {
     display: flex;
     width: 100%;
     height: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
 }
 
 .carousel__slide {
-    flex: 0 0 100%;
+    position: relative;
     width: 100%;
     height: 100%;
+    flex: 0 0 100%;
     background-size: cover;
     background-position: center;
-    position: relative;
 }
 
-/* =============== ARROW BUTTONS =============== */
-.carousel__btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 500;
-}
-
-.carousel__btn::before {
-    content: '';
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-top: 3px solid #000;
-    border-right: 3px solid #000;
-}
-
-.prev { left: 60px; }
-.prev::before { transform: rotate(-135deg); }
-
-.next { right: 60px; }
-.next::before { transform: rotate(45deg); }
-
-/* ===== 버튼 강제 센터 고정 ===== */
-.button-wrap,
-.button-wrap-2 {
-    position: absolute;
-    inset: 0;                 /* 🔥 기준 강제 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: auto;
-    z-index: 600;
-}
-
-/* 버튼 간격 */
-.button-wrap-2 {
-    justify-content: center;
-}
-
-/* 실제 버튼 위치 미세 조정 */
-.button-wrap .detail-button {
-    transform: translateX(-70px);
-}
-
-.button-wrap-2 .detail-button {
-    transform: translateX(70px);
-}
-
-/* 버튼 크기 고정 */
+/* 상세보기 버튼 */
 .detail-button {
-    width: 120px;
-    height: 120px;
+    position: absolute;
+    top: 375px;
+    left: 740px;
+    width: 200px;
+    height: 200px;
+    z-index: 400;
+    transition: transform 0.3s ease;
 }
 
 .detail-button img {
@@ -135,81 +71,47 @@ html, body {
     object-fit: contain;
 }
 
-/* 버튼 이미지 */
-.detail-button {
-    display: block;
-    width: 120px;
-    height: 120px;
+.detail-button:hover {
+    transform: scale(1.1);
 }
 
-.detail-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+/* ✅ 추가 버튼 – 오른쪽 정확히 100px */
+.button-4 {
+    left: 840px; /* 740 + 100 */
 }
 
-/* =============== POPUP =============== */
+/* 클릭 영역 */
+.custom-area-link-1 {
+    position: absolute;
+    left: 240px;
+    top: 600px;
+    width: 569px;
+    height: 25px;
+}
+
+/* 팝업 */
 .popup-dim {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.85);
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
-    z-index: 9998;
-}
-
-.popup-dim.show {
-    opacity: 1;
-    visibility: visible;
 }
 
 .popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    width: 90%;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 80%;
     max-width: 1000px;
-    height: auto;
     background: #000;
-    border-radius: 32px;
+    border-radius: 40px;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
-    z-index: 9999;
 }
 
-.popup.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-#popupImg {
+.popup img {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 32px;
-}
-
-/* =============== POPUP CLOSE =============== */
-.popup-close {
-    position: fixed;
-    top: 40px;
-    right: 40px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10000;
-    display: none;
-}
-
-.popup-dim.show ~ .popup-close {
-    display: block;
+    border-radius: 40px;
 }
