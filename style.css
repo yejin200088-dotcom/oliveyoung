@@ -48,16 +48,12 @@ body, html {
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 10;
-    background: transparent;
 }
 
 .carousel__viewport {
     display: flex; 
     width: 100%; height: 100%;
     overflow: hidden;
-    scroll-behavior: smooth;
-    margin: 0; padding: 0; 
-    list-style: none;
 }
 
 .carousel__slide {
@@ -68,30 +64,26 @@ body, html {
     position: relative;
 }
 
-/* --- [중요] 슬라이드 좌우 버튼 수정 --- */
+/* --- 슬라이드 좌우 버튼 --- */
 .carousel__btn { 
     position: absolute; 
     top: 50%; 
     transform: translateY(-50%) scale(3); 
     width: 60px; 
     height: 60px; 
-    background: transparent !important; 
-    border: none !important; 
-    outline: none;
-    color: #000 !important; 
+    background: transparent; 
+    border: none; 
     cursor: pointer; 
-    /* z-index를 높여서 캔버스나 슬라이드보다 위로 올림 */
     z-index: 500; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    transition: all 0.3s ease;
-    pointer-events: auto; /* 마우스 이벤트 강제 활성화 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .carousel__btn:hover { 
     opacity: 0.6; 
-    transform: translateY(-50%) scale(3.5); /* 호버 시 더 크게 반응 */
+    transform: translateY(-50%) scale(3.5); 
 }
 
 .carousel__btn::before { 
@@ -100,172 +92,159 @@ body, html {
     height: 12px; 
     border-top: 4px solid #000; 
     border-right: 4px solid #000; 
-    display: inline-block; 
 }
 
 .prev { left: 80px; } 
-.prev::before { transform: rotate(-135deg); margin-left: 6px; }
+.prev::before { transform: rotate(-135deg); }
 
 .next { right: 80px; } 
-.next::before { transform: rotate(45deg); margin-right: 6px; }
+.next::before { transform: rotate(45deg); }
 
 /* --- 네비게이션 --- */
 nav {
-    z-index: 1000;
-    background: transparent;
-    width: 80px; height: 80px;
-    display: flex; 
-    position: fixed; 
+    position: fixed;
     top: 70px; 
-    right: 50px; 
-    align-items: center; 
-    border-radius: 40px; 
+    right: 50px;
+    width: 80px; 
+    height: 80px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav.active { 
     width: 500px; 
-    background: linear-gradient(135deg, rgba(255, 165, 0, 0.5), rgba(168, 118, 170, 0.5));
+    background: linear-gradient(135deg, rgba(255,165,0,.5), rgba(168,118,170,.5));
     backdrop-filter: blur(10px);
 }
 
 nav ul {
-    display: flex; align-items: center; list-style: none;
-    margin: 0; padding: 0 0 0 25px;
-    width: 100%; opacity: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding-left: 25px;
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 nav.active ul { opacity: 1; }
 
 nav ul a {
-    color: #fff; text-decoration: none;
-    margin-left: 25px; font-size: 18px; font-weight: 500;
-    text-transform: uppercase; white-space: nowrap;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
+/* --- 햄버거 --- */
 .icon { 
-    background: none; 
-    border: 0; 
-    cursor: pointer; 
-    width: 220px;  
-    height: 220px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    flex-shrink: 0;
     position: absolute; 
     right: -85px; 
-    top: calc(50% + 10px); 
-    transform: translateY(-50%); 
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 220px; 
+    height: 220px; 
     z-index: 1001;
-    padding: 0;
-    margin: 0;
-    outline: none;
 }
 
 #toggleImg { 
-    width: 220px !important; 
-    height: 220px !important; 
-    transform: translateY(12px);
+    width: 220px; 
+    height: 220px; 
 }
 
-/* --- 상세보기 버튼 --- */
-.detail-button { 
-    position: relative;   /* 중요 */
-    width: 200px; 
-    height: 200px; 
-    z-index: 400;
-    transition: transform 0.3s ease;
-}
+/* --- 🔥 상세보기 버튼 (문제 해결 영역) --- */
 
-/* 버튼 2번은 래퍼로 위치 제어 */
-.detail-button-2 {
-    /* 위치값 제거 */
-}
-
-/* 이미지 유지 */
-.detail-button img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
-}
-/* 버튼 + 텍스트 래퍼 */
-.button-wrap {
+/* 버튼 래퍼 */
+.button-wrap,
+.button-wrap-2 {
     position: absolute;
     top: 340px;
     left: 740px;
     width: 200px;
     text-align: center;
     z-index: 410;
+
+    /* 🔧 위치 미세 조정 */
+    transform: translate(-10px, 10px);
+
+    /* 🔧 부모 transform 안정화 */
+    will-change: transform;
 }
 
-/* 두 번째 버튼 래퍼 */
+/* 두 번째 버튼 */
 .button-wrap-2 {
     left: calc(740px + 140px);
 }
 
-.button-wrap,
-.button-wrap-2 {
-    transform: translate(-10px, 10px);
+/* 버튼 본체 */
+.detail-button { 
+    position: relative;
+    width: 200px; 
+    height: 200px; 
+    z-index: 400;
+
+    /* 🔧 부모 transform 영향 차단 */
+    transform: none;
+    scale: 1;
+
+    transition: scale 0.3s ease;
 }
 
-/* 버튼 위 텍스트 */
+/* 🔧 hover 시 scale만 적용 */
+.detail-button:hover { 
+    scale: 1.1;
+}
+
+.detail-button img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+}
+
+/* 버튼 텍스트 */
 .button-label {
-    display: block;
     margin-bottom: 10px;
     color: #000;
     font-size: 16px;
-    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    opacity: 0.9;
 }
 
-
-
-.detail-button:hover { 
-    transform: scale(1.1); 
-}
-
-/* --- 클릭 영역 좌표 --- */
-.custom-area-link-1 { position: absolute; left: 240px; top: 550px; width: 569px; height: 75px; z-index: 60; cursor: pointer; }
-.custom-area-link-2 { position: absolute; left: 240px; top: 550px; width: 438px; height: 75px; z-index: 60; cursor: pointer; }
-
-/* --- 팝업 (모서리 둥글게 & 고정 닫기 버튼) --- */
-body.no-scroll { overflow: hidden !important; }
+/* --- 팝업 --- */
+body.no-scroll { overflow: hidden; }
 
 .popup-dim {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    inset: 0;
+    background: rgba(0,0,0,.85);
     z-index: 9998;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease;
+    transition: opacity .3s ease;
 }
 
 .popup {
     position: fixed;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 95%; 
+    transform: translate(-50%, -50%) scale(.9);
+    width: 95%;
     height: 80%;
     max-width: 1000px;
     background: #000;
+    border-radius: 40px;
     z-index: 9999;
-    border-radius: 40px; /* 네 면 둥글게 */
-    overflow-y: auto;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    scrollbar-width: none; 
+    transition: all .3s ease;
 }
 
-.popup::-webkit-scrollbar { display: none; }
-
-.popup-dim.show, .popup.show {
+.popup.show,
+.popup-dim.show {
     opacity: 1;
     visibility: visible;
 }
@@ -276,41 +255,29 @@ body.no-scroll { overflow: hidden !important; }
 
 #popupImg {
     width: 100%;
-    height: auto;
-    display: block;
     border-radius: 40px;
 }
 
-/* 화면에 고정된 닫기 버튼 */
 .popup-close {
     position: fixed;
     top: 105px;
     right: 370px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    font-size: 30px;
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    z-index: 10001; /* 팝업 위로 완전 고정 */
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-size: 30px;
+    z-index: 10001;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
 }
 
-/* 팝업 열릴 때 닫기 버튼 노출 */
 .popup-dim.show ~ .popup-close {
     opacity: 1;
     visibility: visible;
-}
-
-.popup-close:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
 }
