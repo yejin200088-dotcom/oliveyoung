@@ -202,7 +202,7 @@ nav ul a {
 
 /* 두 번째 버튼 래퍼 위치 */
 .button-wrap-2 {
-    left: calc(740px + 100px); /* 버튼2와 동일 */
+    left: calc(740px + 140px); /* 버튼2와 동일 */
 }
 
 /* 버튼 위 텍스트 */
