@@ -9,78 +9,81 @@
 <body>
 
 <div id="app">
-    <img src="image/kreamhello.jpg" alt="background" id="staticImg">
+    <img src="image/mainpage.jpg" alt="background" class="base-image" id="staticImg">
     <canvas id="canvas"></canvas>
 
-    <!-- ABOUT -->
-    <section class="carousel" id="aboutCarousel" style="display:none;">
+    <section class="carousel" id="aboutCarousel" style="display: none;">
         <ol class="carousel__viewport">
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme1.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme2.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme3.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme4.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamaboutme5.jpg');"></li>
-            <li class="carousel__slide" style="background-image:url('image/kreamthankyou.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme1.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme2.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme3.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme4.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme5.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme6.jpg');"></li>
+            <li class="carousel__slide" style="background-image: url('image/aboutme7.jpg');"></li>
         </ol>
         <button class="carousel__btn prev"></button>
         <button class="carousel__btn next"></button>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section class="carousel" id="portfolioCarousel" style="display:none;">
+    <section class="carousel" id="portfolioCarousel" style="display: none;">
         <ol class="carousel__viewport">
 
             <!-- portfolio 1 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio1.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing1.png">
-                    <img src="image/button3.png">
+            <li class="carousel__slide" style="background-image: url('image/portfolio1.jpg');">
+                
+                <!-- 기존 버튼 -->
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing1.jpg">
+                    <img src="image/button.png">
                 </a>
-                <a href="javascript:void(0)" class="detail-button button4" data-popup="image/landing11.png">
+
+                <!-- ✅ 추가된 button4 -->
+                <a href="javascript:void(0)" 
+                   class="detail-button button-4" 
+                   data-popup="image/landing11.png">
                     <img src="image/button4.png">
                 </a>
-                <a href="https://yejin200088-dotcom.github.io/website/" class="custom-area-link-1" target="_blank"></a>
+
+                <a href="https://yejin200088-dotcom.github.io/website/" 
+                   class="custom-area-link-1" 
+                   target="_blank"></a>
             </li>
 
-            <!-- portfolio 2 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio2.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing2.png">
+            <li class="carousel__slide" style="background-image: url('image/portfolio2.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing2.png">
                     <img src="image/button.png">
                 </a>
-                <a href="https://www.figma.com/" class="custom-area-link-2" target="_blank"></a>
+                <a href="https://www.figma.com/proto/VRbC4LwdC9dDfCZBqJNJDn/Untitled?page-id=0%3A1&node-id=178-826&viewport=-2040%2C1160%2C0.46&t=MXsaWoIRVkxsm6Y3-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=178%3A826&show-proto-sidebar=1" 
+                   class="custom-area-link-2" 
+                   target="_blank"></a>
             </li>
 
-            <!-- portfolio 3 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio3.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing3.jpg">
-                    <img src="image/button.png">
-                </a>
-            </li>
-
-            <!-- portfolio 4 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio4.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing4.png">
+            <li class="carousel__slide" style="background-image: url('image/portfolio3.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing3.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <!-- portfolio 5 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio5.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing5.jpg">
+            <li class="carousel__slide" style="background-image: url('image/portfolio4.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing4.png">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <!-- portfolio 6 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio6.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing6.jpg">
+            <li class="carousel__slide" style="background-image: url('image/portfolio5.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing5.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <!-- portfolio 7 -->
-            <li class="carousel__slide" style="background-image:url('image/portfolio7.jpg');">
-                <a href="javascript:void(0)" class="detail-button button3" data-popup="image/landing7.jpg">
+            <li class="carousel__slide" style="background-image: url('image/portfolio6.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing6.jpg">
+                    <img src="image/button.png">
+                </a>
+            </li>
+
+            <li class="carousel__slide" style="background-image: url('image/portfolio7.jpg');">
+                <a href="javascript:void(0)" class="detail-button" data-popup="image/landing7.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
@@ -91,22 +94,22 @@
     </section>
 </div>
 
-<!-- popup -->
 <div class="popup-dim" id="popupDim"></div>
 <button class="popup-close" id="popupClose">✕</button>
 <div class="popup" id="popup">
-    <img id="popupImg" src="">
+    <div class="popup-content">
+        <img id="popupImg" src="" alt="landing content">
+    </div>
 </div>
 
-<!-- nav -->
-<nav id="nav">
+<nav id="nav"> 
     <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="#portfolio" id="goPortfolio">PORTFOLIO</a></li>
         <li><a href="#about" id="goAbout">ABOUT ME</a></li>
     </ul>
-    <button class="icon" id="toggle">
-        <img src="image/hamburgerin.png" id="toggleImg">
+    <button class="icon" id="toggle"> 
+        <img src="image/hamburgerin.png" id="toggleImg" alt="menu">
     </button>
 </nav>
 
