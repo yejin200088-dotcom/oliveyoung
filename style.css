@@ -205,7 +205,10 @@ nav ul a {
     left: calc(740px + 140px);
 }
 
-
+.button-wrap,
+.button-wrap-2 {
+    transform: translate(-10px, 10px);
+}
 
 /* 버튼 위 텍스트 */
 .button-label {
