@@ -183,7 +183,7 @@ nav ul a {
 
 /* 버튼 2번 위치 조정 */
 .detail-button-2 {
-    left: calc(740px - 180px); /* 버튼1 기준 오른쪽 30px */
+    left: calc(740px + 100px); /* 버튼1 기준 오른쪽 30px */
 }
 
 .detail-button img { 
