@@ -181,15 +181,14 @@ nav ul a {
     transition: transform 0.3s ease;
 }
 
-/* 버튼 3의 위치 (기존 740px) */
-.btn-3 {
-    left: 740px;
+/* 버튼 3 (기준 위치) */
+.button-3 {
+  left: 740px;
 }
 
-/* 버튼 4의 위치 (버튼 3의 left 740px + 간격 140px = 880px) */
-/* 만약 버튼 사이의 '여백'이 140px이어야 한다면 740 + 200(버튼가로) + 140 = 1080px로 수정하세요 */
-.btn-4 {
-    left: 880px; 
+/* 버튼 4 (버튼3 기준 +140px) */
+.button-4 {
+  left: calc(740px + 140px);
 }
 
 .detail-button img { 
