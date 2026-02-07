@@ -180,7 +180,7 @@ body.no-scroll { overflow: hidden !important; }
 /* --- 버튼4 위치 --- */
 
 .detail-button.button-3 {
-    left: 680px !important;
+    left: 600px !important;
     top: 375px !important;
     z-index: 401 !important;
 }
