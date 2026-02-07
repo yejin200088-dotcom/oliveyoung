@@ -5,24 +5,17 @@
     --accent-color: #a876aa; 
 }
 
-* { 
-    box-sizing: border-box; 
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; }
 
 body, html {
+    margin: 0; padding: 0;
     width: 100%; height: 100%;
     overflow: hidden;
     background-color: #000;
     font-family: "Montserrat", sans-serif;
 }
 
-#app { 
-    position: relative; 
-    width: 100%; 
-    height: 100%; 
-}
+#app { position: relative; width: 100%; height: 100%; }
 
 #staticImg {
     position: absolute;
@@ -43,256 +36,50 @@ body, html {
     transition: opacity 0.3s ease;
 }
 
-/* --- 카루셀 레이아웃 --- */
-.carousel {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 10;
-    background: transparent;
-}
+/* --- 카루셀 --- */
+.carousel { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent; }
+.carousel__viewport { display: flex; width: 100%; height: 100%; overflow: hidden; scroll-behavior: smooth; margin: 0; padding: 0; list-style: none; }
+.carousel__slide { flex: 0 0 100%; width: 100%; height: 100%; background-size: cover; background-position: center; position: relative; }
 
-.carousel__viewport {
-    display: flex; 
-    width: 100%; height: 100%;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    list-style: none;
-}
-
-.carousel__slide {
-    flex: 0 0 100%;
-    width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-/* --- 슬라이드 좌우 버튼 --- */
-.carousel__btn { 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%) scale(3); 
-    width: 60px; 
-    height: 60px; 
-    background: transparent !important; 
-    border: none !important; 
-    outline: none;
-    color: #000 !important; 
-    cursor: pointer; 
-    z-index: 500; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: all 0.3s ease;
-    pointer-events: auto;
-}
-
-.carousel__btn:hover { 
-    opacity: 0.6; 
-    transform: translateY(-50%) scale(3.5);
-}
-
-.carousel__btn::before { 
-    content: ''; 
-    width: 12px; 
-    height: 12px; 
-    border-top: 4px solid #000; 
-    border-right: 4px solid #000; 
-    display: inline-block; 
-}
-
-.prev { left: 5%; } 
-.prev::before { transform: rotate(-135deg); margin-left: 6px; }
-
-.next { right: 5%; } 
-.next::before { transform: rotate(45deg); margin-right: 6px; }
+.carousel__btn { position: absolute; top: 50%; transform: translateY(-50%) scale(3); width: 60px; height: 60px; background: transparent !important; border: none !important; outline: none; color: #000 !important; cursor: pointer; z-index: 500; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; pointer-events: auto; }
+.carousel__btn:hover { opacity: 0.6; transform: translateY(-50%) scale(3.5); }
+.carousel__btn::before { content: ''; width: 12px; height: 12px; border-top: 4px solid #000; border-right: 4px solid #000; display: inline-block; }
+.prev { left: 80px; } .prev::before { transform: rotate(-135deg); margin-left: 6px; }
+.next { right: 80px; } .next::before { transform: rotate(45deg); margin-right: 6px; }
 
 /* --- 네비게이션 --- */
-nav {
-    z-index: 1000;
-    background: transparent;
-    width: 80px; height: 80px;
-    display: flex; 
-    position: fixed; 
-    top: 70px; 
-    right: 50px; 
-    align-items: center; 
-    border-radius: 40px; 
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-nav.active { 
-    width: 50%;
-    max-width: 500px;
-    background: linear-gradient(135deg, rgba(255, 165, 0, 0.5), rgba(168, 118, 170, 0.5));
-    backdrop-filter: blur(10px);
-}
-
-nav ul {
-    display: flex; align-items: center; list-style: none;
-    padding-left: 25px;
-    width: 100%; opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
+nav { z-index: 1000; background: transparent; width: 80px; height: 80px; display: flex; position: fixed; top: 70px; right: 50px; align-items: center; border-radius: 40px; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+nav.active { width: 500px; background: linear-gradient(135deg, rgba(255, 165, 0, 0.5), rgba(168, 118, 170, 0.5)); backdrop-filter: blur(10px); }
+nav ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0 0 0 25px; width: 100%; opacity: 0; transition: opacity 0.3s ease; }
 nav.active ul { opacity: 1; }
-
-nav ul a {
-    color: #fff; text-decoration: none;
-    margin-left: 25px; font-size: 1.1rem; font-weight: 500;
-    text-transform: uppercase; white-space: nowrap;
-}
-
-.icon { 
-    background: none; 
-    border: 0; 
-    cursor: pointer; 
-    width: 220px;  
-    height: 220px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    flex-shrink: 0;
-    position: absolute; 
-    right: -40%; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    z-index: 1001;
-}
+nav ul a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 18px; font-weight: 500; text-transform: uppercase; white-space: nowrap; }
+.icon { background: none; border: 0; cursor: pointer; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: absolute; right: -85px; top: calc(50% + 10px); transform: translateY(-50%); z-index: 1001; padding: 0; margin: 0; outline: none; }
+#toggleImg { width: 220px !important; height: 220px !important; transform: translateY(12px); }
 
 /* --- 상세보기 버튼 --- */
-.detail-button { 
-    position: absolute; 
-    width: 12vw;
-    height: 12vw;
-    max-width: 200px;
-    max-height: 200px;
-    z-index: 400; 
-    transition: transform 0.3s ease;
-}
+.detail-button { position: absolute; top: 375px; left: 740px; width: 200px; height: 200px; z-index: 400; transition: transform 0.3s ease; }
+.detail-button img { width: 100%; height: 100%; object-fit: contain; }
+.detail-button:hover { transform: scale(1.1); }
 
-.detail-button img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
-}
+/* --- 버튼4 --- */
+.button-4 { position: absolute; top: 375px; left: 1040px; width: 200px; height: 200px; z-index: 401; transition: transform 0.3s ease; }
+.button-4 img { width: 100%; height: 100%; object-fit: contain; }
+.button-4:hover { transform: scale(1.1); }
 
-.detail-button:hover { 
-    transform: scale(1.1); 
-}
-
-/* --- 버튼3, 버튼4 위치 (반응형) --- */
-.button-3 {
-    top: 40%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-}
-
-.button-4 {
-    top: 40%; 
-    left: calc(50% + 12vw); /* 버튼3 기준 오른쪽 100px 정도 반응형 */
-    transform: translate(-50%, -50%);
-    z-index: 401;
-}
-
-/* --- 클릭 영역 좌표 --- */
+/* --- 클릭 영역 --- */
 .custom-area-link-1 { position: absolute; left: 240px; top: 550px; width: 569px; height: 75px; z-index: 60; cursor: pointer; }
 .custom-area-link-2 { position: absolute; left: 240px; top: 550px; width: 438px; height: 75px; z-index: 60; cursor: pointer; }
 
-/* --- 팝업 (모서리 둥글게 & 고정 닫기 버튼) --- */
+/* --- 팝업 --- */
 body.no-scroll { overflow: hidden !important; }
-
-.popup-dim {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 9998;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-}
-
-.popup {
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 95%; 
-    height: 80%;
-    max-width: 1000px;
-    background: #000;
-    z-index: 9999;
-    border-radius: 40px;
-    overflow-y: auto;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.popup-dim { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 9998; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; }
+.popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 95%; height: 80%; max-width: 1000px; background: #000; z-index: 9999; border-radius: 40px; overflow-y: auto; opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); scrollbar-width: none; }
 .popup::-webkit-scrollbar { display: none; }
+.popup-dim.show, .popup.show { opacity: 1; visibility: visible; }
+.popup.show { transform: translate(-50%, -50%) scale(1); }
+#popupImg { width: 100%; height: auto; display: block; border-radius: 40px; }
 
-.popup-dim.show, .popup.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup.show {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-#popupImg {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 40px;
-}
-
-/* 화면에 고정된 닫기 버튼 */
-.popup-close {
-    position: fixed;
-    top: 105px;
-    right: 370px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    color: #fff;
-    font-size: 30px;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    z-index: 10001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.popup-dim.show ~ .popup-close {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup-close:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
-}
-
-/* --- 반응형 --- */
-@media screen and (max-width: 1440px) {
-    .button-3, .button-4 { width: 14vw; height: 14vw; }
-    nav.active { width: 60%; }
-}
-
-@media screen and (max-width: 1024px) {
-    .button-3, .button-4 { width: 16vw; height: 16vw; }
-    nav.active { width: 70%; }
-}
-
-@media screen and (max-width: 768px) {
-    .button-3, .button-4 { width: 20vw; height: 20vw; top: 45%; }
-    nav.active { width: 80%; }
-}
+/* --- 팝업 닫기 버튼 --- */
+.popup-close { position: fixed; top: 105px; right: 370px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); color: #fff; font-size: 30px; width: 65px; height: 65px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.3); cursor: pointer; z-index: 10001; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.popup-dim.show ~ .popup-close { opacity: 1; visibility: visible; }
+.popup-close:hover { background: rgba(255, 255, 255, 0.4); transform: scale(1.1); }
