@@ -50,10 +50,11 @@ body, html {
 
 .carousel__slide {
     flex: 0 0 100%;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    position: relative;
+    position: relative; /* <- 이게 꼭 필요 */
 }
 
 /* --- 슬라이드 버튼 --- */
@@ -129,12 +130,7 @@ nav ul a {
 .detail-button img { width: 100%; height: 100%; object-fit: contain; }
 .detail-button:hover { transform: scale(1.1); }
 
-/* --- 버튼4 위치 --- */
-.detail-button.button-4 {
-    left: 740px; /* 버튼3 끝에서 오른쪽으로 100px */
-    top: 175px;
-    z-index: 401;
-}
+
 
 /* --- 클릭 영역 --- */
 .custom-area-link-1 { position: absolute; left: 240px; top: 550px; width: 569px; height: 75px; z-index: 60; cursor: pointer; }
@@ -179,6 +175,13 @@ body.no-scroll { overflow: hidden !important; }
     display: flex; align-items: center; justify-content: center;
     opacity: 0; visibility: hidden;
     transition: all 0.3s ease;
+}
+
+/* --- 버튼4 위치 --- */
+.detail-button.button-4 {
+    left: 740px; /* 버튼3 끝에서 오른쪽으로 100px */
+    top: 175px;
+    z-index: 401;
 }
 
 .popup-dim.show ~ .popup-close { opacity: 1; visibility: visible; }
