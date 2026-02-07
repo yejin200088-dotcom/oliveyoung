@@ -12,6 +12,7 @@
     <img src="image/mainpage.jpg" alt="background" class="base-image" id="staticImg">
     <canvas id="canvas"></canvas>
 
+    <!-- ABOUT CAROUSEL -->
     <section class="carousel" id="aboutCarousel" style="display: none;">
         <ol class="carousel__viewport">
             <li class="carousel__slide" style="background-image: url('image/aboutme1.jpg');"></li>
@@ -26,9 +27,12 @@
         <button class="carousel__btn next"></button>
     </section>
 
+    <!-- PORTFOLIO CAROUSEL -->
     <section class="carousel" id="portfolioCarousel" style="display: none;">
         <ol class="carousel__viewport">
-            <li class="carousel__slide" style="background-image: url('image/portfolio1.jpg');">
+
+            <!-- Slide 1 -->
+            <li class="carousel__slide slide-1" style="background-image: url('image/portfolio1.jpg');">
                 <a href="javascript:void(0)" class="detail-button button-3" data-popup="image/landing1.png">
                     <img src="image/button3.png">
                 </a>
@@ -36,26 +40,30 @@
                     <img src="image/button4.png">
                 </a>
             </li>
-            
-            <li class="carousel__slide" style="background-image: url('image/portfolio2.jpg');">
+
+            <!-- Slide 2 -->
+            <li class="carousel__slide slide-2" style="background-image: url('image/portfolio2.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing2.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <li class="carousel__slide" style="background-image: url('image/portfolio3.jpg');">
+            <!-- Slide 3 -->
+            <li class="carousel__slide slide-3" style="background-image: url('image/portfolio3.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing3.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <li class="carousel__slide" style="background-image: url('image/portfolio4.jpg');">
+            <!-- Slide 4 -->
+            <li class="carousel__slide slide-4" style="background-image: url('image/portfolio4.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing4.png">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <li class="carousel__slide" style="background-image: url('image/portfolio5.jpg');">
+            <!-- Slide 5 -->
+            <li class="carousel__slide slide-5" style="background-image: url('image/portfolio5.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing5.png">
                     <img src="image/button.png">
                 </a>
@@ -63,24 +71,28 @@
                    class="custom-area-link-2" target="_blank"></a>
             </li>
 
-            <li class="carousel__slide" style="background-image: url('image/portfolio6.jpg');">
+            <!-- Slide 6 -->
+            <li class="carousel__slide slide-6" style="background-image: url('image/portfolio6.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing6.jpg">
                     <img src="image/button.png">
                 </a>
             </li>
 
-            <li class="carousel__slide" style="background-image: url('image/portfolio7.jpg');">
+            <!-- Slide 7 -->
+            <li class="carousel__slide slide-7" style="background-image: url('image/portfolio7.jpg');">
                 <a href="javascript:void(0)" class="detail-button" data-popup="image/landing7.jpg">
                     <img src="image/button.png">
                 </a>
                 <a href="https://yejin200088-dotcom.github.io/website/" class="custom-area-link-1" target="_blank"></a>
             </li>
+
         </ol>
         <button class="carousel__btn prev"></button>
         <button class="carousel__btn next"></button>
     </section>
 </div>
 
+<!-- POPUP -->
 <div class="popup-dim" id="popupDim"></div>
 <button class="popup-close" id="popupClose">✕</button>
 <div class="popup" id="popup">
@@ -89,6 +101,7 @@
     </div>
 </div>
 
+<!-- NAV -->
 <nav id="nav"> 
     <ul>
         <li><a href="index.html">HOME</a></li>
