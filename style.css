@@ -277,3 +277,6 @@ body.no-scroll { overflow: hidden !important; }
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
+.button-4 {
+    left: calc(740px + 100px);
+}
