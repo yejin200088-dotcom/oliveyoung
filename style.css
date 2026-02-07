@@ -180,16 +180,11 @@ body.no-scroll { overflow: hidden !important; }
 /* --- 버튼4 위치 --- */
 
 .detail-button.button-3 {
-    left: 640px !important;
+    left: 680px !important;
     top: 375px !important;
     z-index: 401 !important;
 }
 
-.detail-button.button-4 {
-    left: 740px !important;
-    top: 375px !important;
-    z-index: 401 !important;
-}
 
 .popup-dim.show ~ .popup-close { opacity: 1; visibility: visible; }
 .popup-close:hover { background: rgba(255,255,255,0.4); transform: scale(1.1); }
