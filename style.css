@@ -277,6 +277,10 @@ body.no-scroll { overflow: hidden !important; }
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
-.button-4 {
-    left: calc(740px + 100px);
+    position: absolute;
+    top: 375px;      /* 버튼3과 같은 top */
+    left: 1040px;    /* 버튼3 끝에서 100px 오른쪽 */
+    width: 200px;
+    height: 200px;
+    z-index: 401;    /* 버튼3보다 위 */
 }
